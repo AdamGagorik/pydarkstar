@@ -7,13 +7,23 @@
 
 > cd /D "C:\path\to\pydarkstar\bin"
 > conda activate pydarkstar
+> .\refill.py
 > .\broker.py
 
 # Linux
 
 bash:~$ cd /path/to/pydarkstar/bin
 bash:~$ conda activate pydarkstar
+bash:~$ ./refill.py
 bash:~$ ./broker.py
+```
+
+```{warning}
+The `broker` will wait until the 1st cycle defined in your config before populating items.
+```
+
+```{important}
+Run the `refill` app to populate the AH if you want to buy items immediately!
 ```
 
 #### Parameters
@@ -85,4 +95,4 @@ There is no need to run the scrub app as an `items.csv` is included already!
 | buyer  | server that buys items on the AH from players                       |
 | seller | server that sells items on the AH to players                        |
 | clear  | clear the AH of all transactions                                    |
-| refill  | fill the AH with items for sale and exit                             |
+| refill | fill the AH with items for sale and exit                            |

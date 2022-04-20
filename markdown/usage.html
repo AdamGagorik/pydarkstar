@@ -240,14 +240,24 @@
 
 &gt; <span class="nb">cd</span> /D <span class="s2">"C:\path\to\pydarkstar\bin"</span>
 &gt; conda activate pydarkstar
+&gt; .<span class="se">\r</span>efill.py
 &gt; .<span class="se">\b</span>roker.py
 
 <span class="c1"># Linux</span>
 
 bash:~$ <span class="nb">cd</span> /path/to/pydarkstar/bin
 bash:~$ conda activate pydarkstar
+bash:~$ ./refill.py
 bash:~$ ./broker.py
 </pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">broker</span></code> will wait until the 1st cycle defined in your config before populating items.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">refill</span></code> app to populate the AH if you want to buy items immediately!</p>
 </div>
 </section>
 <section id="parameters">
