@@ -9,7 +9,7 @@ broker
     usage: run.py [-h] [--verbose] [--silent] [--hostname str] [--database str]
                   [--username str] [--password str] [--fail] [--name str]
                   [--restock int] [--tick int]
-                  [str [str ...]]
+                  [str ...]
     
     Buy and sell items on the auction house.
     
@@ -39,7 +39,7 @@ seller
     usage: run.py [-h] [--verbose] [--silent] [--hostname str] [--database str]
                   [--username str] [--password str] [--fail] [--name str]
                   [--restock int]
-                  [str [str ...]]
+                  [str ...]
     
     Sell items on the auction house.
     
@@ -68,7 +68,7 @@ buyer
     usage: run.py [-h] [--verbose] [--silent] [--hostname str] [--database str]
                   [--username str] [--password str] [--fail] [--name str]
                   [--tick int]
-                  [str [str ...]]
+                  [str ...]
     
     Buy items on the auction house.
     
@@ -123,7 +123,7 @@ refill
     usage: run.py [-h] [--verbose] [--silent] [--hostname str] [--database str]
                   [--username str] [--password str] [--fail] [--name str]
                   [--force]
-                  [str [str ...]]
+                  [str ...]
     
     Refill the auction house.
     
@@ -150,8 +150,8 @@ scrub
 .. code:: python
 
     usage: run.py [-h] [--verbose] [--silent] [--overwrite] [--backup]
-                  [--urls [url [url ...]]] [--itemids [itemids [itemids ...]]]
-                  [--stock01 5] [--stock12 5] [--threads int] [--server str | int]
+                  [--urls [url ...]] [--itemids [itemids ...]] [--stock01 5]
+                  [--stock12 5] [--threads int] [--server str | int]
                   [stub]
     
     Create item database.
@@ -165,9 +165,8 @@ scrub
       --silent              report error only
       --overwrite           overwrite output file
       --backup              backup output file
-      --urls [url [url ...]]
-                            a list of category urls
-      --itemids [itemids [itemids ...]]
+      --urls [url ...]      a list of category urls
+      --itemids [itemids ...]
                             a list of item ids
       --stock01 5           default stock for singles
       --stock12 5           default stock for stacks

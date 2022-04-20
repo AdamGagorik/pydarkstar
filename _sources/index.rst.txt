@@ -1,19 +1,15 @@
-.. pydarkstar documentation master file, created by
-   sphinx-quickstart on Tue Sep 29 07:48:36 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-.. include:: ./generated/README.rst
+.. include:: ../../README.md
+   :parser: myst_parser.sphinx_
 
 .. toctree::
     :maxdepth: 1
 
-    generated/setup
-    generated/usage
-    generated/scrubbing
+    markdown/setup
+    markdown/usage
+    markdown/scrubbing
     generated/apps
-    generated/requirements
-    generated/advanced
+    markdown/requirements
+    markdown/advanced
     Code <generated/pydarkstar>
 
 -----
@@ -24,5 +20,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-
