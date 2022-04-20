@@ -70,6 +70,10 @@ Please see the [scrubbing](./scrubbing.md) guide info on generating this **CSV**
 
 #### Apps
 
+```{warning}
+There is no need to run the scrub app as an `items.csv` is included already!
+```
+
 * There are many apps
 * You may use the scrub app
 * You will probably only use the broker app

@@ -14,9 +14,11 @@ This is a giude to getting pydarkstar running.
 
 ### Step 2: Create Python Environment
 
-* **GOTCHA**: Use the Anaconda Command Prompt on **WINDOWS** (search for it in the start menu)
+```{warning}
+Use the Anaconda Command Prompt on Windows (search for it in the start menu)
+```
 
-* Open an command prompt in the bin folder.
+* Open a command prompt in the bin folder.
 
 ```bash
 # Windows

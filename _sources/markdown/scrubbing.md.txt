@@ -1,5 +1,19 @@
 #### Scrubbing
 
+```{warning}
+There is no reason to run the scrub app as an `items.csv` is included already!
+```
+
+```{warning}
+Retail sometimes has unexpected prices in the history.
+
+  * There may be ancient entries.
+  * Something might be sold something below NPC price.
+  * An item may only really sell as either a stack or a single.
+
+This may result in exploits on your server if you are not careful.
+```
+
 * Item data is stored in *items.csv*
 * *items.csv* is just a simple text file that you can edit with excel
 * The *items.csv* can be created with the scrub app
