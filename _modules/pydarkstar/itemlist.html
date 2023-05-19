@@ -319,7 +319,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'load </span><span class="si">%s</span><span class="s1">'</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
         <span class="n">line_number</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'rU'</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
             <span class="c1"># first line is item titles</span>
             <span class="n">line</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
             <span class="n">line_number</span> <span class="o">+=</span> <span class="mi">1</span>
