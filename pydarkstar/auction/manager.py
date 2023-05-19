@@ -7,6 +7,7 @@ from .seller import Seller
 from .buyer import Buyer
 from .. import timeutils
 import datetime
+import random
 
 
 class Manager(Worker):
@@ -83,8 +84,13 @@ class Manager(Worker):
                                 if data.buy12:
                                     # check price
                                     if row.price <= data.price12:
-                                        date = timeutils.timestamp(datetime.datetime.now())
-                                        self.buyer.buy_item(row, date, data.price12)
+                                        attempt = random.random()
+                                        if attempt <= data.rate12:
+                                            date = timeutils.timestamp(datetime.datetime.now())
+                                            self.buyer.buy_item(row, date, data.price12)
+                                        else:
+                                            self.info('attempt did not succeed! itemid=%d %.3f > %.3f',
+                                                      row.itemid, attempt, data.rate12)
                                     else:
                                         self.info('price too high! itemid=%d %d <= %d',
                                                   row.itemid, row.price, data.price12)
@@ -98,8 +104,13 @@ class Manager(Worker):
                                 if data.buy01:
                                     # check price
                                     if row.price <= data.price01:
-                                        date = timeutils.timestamp(datetime.datetime.now())
-                                        self.buyer.buy_item(row, date, data.price01)
+                                        attempt = random.random()
+                                        if attempt <= data.rate01:
+                                            date = timeutils.timestamp(datetime.datetime.now())
+                                            self.buyer.buy_item(row, date, data.price01)
+                                        else:
+                                            self.info('attempt did not succeed! itemid=%d %.3f > %.3f',
+                                                      row.itemid, attempt, data.rate12)
                                     else:
                                         self.info('price too high! itemid=%d %d <= %d',
                                                   row.itemid, row.price, data.price01)
