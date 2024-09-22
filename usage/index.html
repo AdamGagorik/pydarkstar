@@ -660,6 +660,13 @@ App specific command line flags must come after the name of the app to run.</p>
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│<span class="w"> </span>scrub<span class="w">    </span>Download<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>item<span class="w"> </span>prices<span class="w"> </span>from<span class="w"> </span>ffxiah.com<span class="w"> </span>and<span class="w"> </span>save<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>CSV<span class="w"> </span>file.<span class="w">                                                  </span>│
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 </span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You do not actually need a live or production SQL database to test these commands.
+Instead, you can pass the <code>--use-sqlite-db</code> flag to use a fake SQLite database instead.
+This will manipulate a SQLite database file on your machine instead of a real server's database.
+You can then inspect the database with any tool that can read SQLite databases.</p>
+</div>
 <h4 id="downloading-a-new-items-csv">Downloading a new Items CSV<a class="headerlink" href="#downloading-a-new-items-csv" title="Permanent link">&para;</a></h4>
 <p>This command will download item data from ffxiah.com and save it to a CSV file.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>--verbose<span class="w"> </span>scrub
