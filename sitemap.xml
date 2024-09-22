@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://AdamGagorik.github.io/ffxiahbot/</loc>
+         <lastmod>2024-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://AdamGagorik.github.io/ffxiahbot/advanced/</loc>
+         <lastmod>2024-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://AdamGagorik.github.io/ffxiahbot/setup/</loc>
+         <lastmod>2024-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://AdamGagorik.github.io/ffxiahbot/usage/</loc>
+         <lastmod>2024-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>

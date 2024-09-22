@@ -1,0 +1,988 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A jinja2 block to render a mermaid diagram">
+      
+      
+        <meta name="author" content="Adam Gagorik">
+      
+      
+        <link rel="canonical" href="https://AdamGagorik.github.io/ffxiahbot/usage/">
+      
+      
+        <link rel="prev" href="../setup/">
+      
+      
+        <link rel="next" href="../advanced/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>Usage - ffxiahbot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ffxiahbot" class="md-header__button md-logo" aria-label="ffxiahbot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ffxiahbot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Usage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AdamGagorik/ffxiahbot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AdamGagorik/ffxiahbot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ffxiahbot" class="md-nav__button md-logo" aria-label="ffxiahbot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ffxiahbot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AdamGagorik/ffxiahbot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AdamGagorik/ffxiahbot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLDR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Config File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-a-new-items-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading a new Items CSV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refilling-the-auction-house" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refilling the Auction House
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearing-the-auction-house" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clearing the Auction House
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-ah-broker-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the AH Broker Bot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manually-editing-the-items-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manually Editing the Items CSV
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLDR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Config File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-a-new-items-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading a new Items CSV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refilling-the-auction-house" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refilling the Auction House
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearing-the-auction-house" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clearing the Auction House
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-ah-broker-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the AH Broker Bot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manually-editing-the-items-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manually Editing the Items CSV
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
+<h2 id="tldr">TLDR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<p>Edit the <code>config.yaml</code> and <code>items.csv</code> files in the <code>bin</code> folder.</p>
+<ul>
+<li><a href="https://github.com/AdamGagorik/ffxiahbot/blob/master/bin/config.yaml"><code>config.yaml</code></a></li>
+<li><a href="https://github.com/AdamGagorik/ffxiahbot/blob/master/bin/items.csv"><code>items.csv</code></a></li>
+</ul>
+<p>From the <code>bin</code> folder, run any of the following commands:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>broker
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>clear
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>refill
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>scrub
+</span></code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Run the <code>ffxiahbot</code> command inside a directory that contains a <code>config.yaml</code> and optionally an <code>items.csv</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The way you run the ffxiahbot command depends on how you installed it.</p>
+<table>
+<thead>
+<tr>
+<th>Installation Method</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uv</td>
+<td><code>uv run ffxiahbot --help</code></td>
+</tr>
+<tr>
+<td>pipx</td>
+<td><code>ffxiahbot --help</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="creating-the-config-file">Creating the Config File<a class="headerlink" href="#creating-the-config-file" title="Permanent link">&para;</a></h2>
+<p>You must create a YAML file to configure the tool (<code>config.yaml</code>). All other
+options are passed as command line arguments.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># ah</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">M.H.M.U.</span><span class="w"> </span><span class="c1"># Name that appears on AH when buying and selling</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">tick</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"> </span><span class="c1"># seconds between buying</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">restock</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span><span class="w"> </span><span class="c1"># seconds between selling</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">use_buying_rates</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span><span class="c1"># Only buy items a fraction of the time?</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">use_selling_rates</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span><span class="c1"># Only sell items a fraction of the time?</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># sql</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span><span class="w"> </span><span class="c1"># SQL parameter</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xidb</span><span class="w"> </span><span class="c1"># SQL parameter</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span><span class="w"> </span><span class="c1"># SQL parameter</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span><span class="w"> </span><span class="c1"># SQL parameter</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span><span class="w"> </span><span class="c1"># SQL parameter</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nt">fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># fail on SQL database errors?</span>
+</span></code></pre></div>
+<h2 id="running-the-cli">Running the CLI<a class="headerlink" href="#running-the-cli" title="Permanent link">&para;</a></h2>
+<p>Simply run the <code>ffxiahbot</code> from the command line. Specify the app you want to
+run and any flags you want to set.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Common command line flags like --verbose must come before the name of the app to run.
+App specific command line flags must come after the name of the app to run.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>--help
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w"> </span>Usage:<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...<span class="w">                         </span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w"> </span>The<span class="w"> </span>script<span class="w"> </span>will<span class="w"> </span>interact<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>Auction<span class="w"> </span>House<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>private<span class="w"> </span>Final<span class="w"> </span>Fantasy<span class="w"> </span>XI<span class="w">  </span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w"> </span>server.<span class="w">                                                                        </span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>╭─<span class="w"> </span>Options<span class="w"> </span>────────────────────────────────────────────────────────────────────╮
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│<span class="w"> </span>--version<span class="w">                      </span>Show<span class="w"> </span>version<span class="w"> </span>string.<span class="w">                          </span>│
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│<span class="w"> </span>--silent<span class="w">                       </span>Only<span class="w"> </span>show<span class="w"> </span>ERROR<span class="w"> </span>messages.<span class="w">                     </span>│
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│<span class="w"> </span>--verbose<span class="w">                      </span>Also<span class="w"> </span>show<span class="w"> </span>DEBUG<span class="w"> </span>messages.<span class="w">                     </span>│
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│<span class="w"> </span>--logfile<span class="w">                </span>PATH<span class="w">  </span>The<span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>log<span class="w"> </span>file.<span class="w">                     </span>│
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│<span class="w">                                </span><span class="o">[</span>default:<span class="w"> </span>ahbot.log<span class="o">]</span><span class="w">                          </span>│
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│<span class="w"> </span>--disable-logfile<span class="w">              </span>Disable<span class="w"> </span>logging<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>file.<span class="w">                    </span>│
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│<span class="w"> </span>--help<span class="w">                         </span>Show<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span>exit.<span class="w">                   </span>│
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>╰──────────────────────────────────────────────────────────────────────────────╯
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>╭─<span class="w"> </span>Commands<span class="w"> </span>───────────────────────────────────────────────────────────────────╮
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│<span class="w"> </span>broker<span class="w">   </span>Run<span class="w"> </span>a<span class="w"> </span>bot<span class="w"> </span>that<span class="w"> </span>buys<span class="w"> </span>and<span class="w"> </span>sells<span class="w"> </span>items<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>auction<span class="w"> </span>house<span class="w">            </span>│
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│<span class="w">          </span>continuously.<span class="w">                                                       </span>│
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>│<span class="w"> </span>clear<span class="w">    </span>Delete<span class="w"> </span>items<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>auction<span class="w"> </span>house<span class="w"> </span><span class="o">(</span>dangerous<span class="w"> </span>operation!<span class="o">)</span>.<span class="w">         </span>│
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>│<span class="w"> </span>refill<span class="w">   </span>Refill<span class="w"> </span>the<span class="w"> </span>auction<span class="w"> </span>house<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>items<span class="w"> </span>defined<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>CSV<span class="w"> </span>file.<span class="w">    </span>│
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│<span class="w"> </span>scrub<span class="w">    </span>Download<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>item<span class="w"> </span>prices<span class="w"> </span>from<span class="w"> </span>ffxiah.com<span class="w"> </span>and<span class="w"> </span>save<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>CSV<span class="w">    </span>│
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>│<span class="w">          </span>file.<span class="w">                                                               </span>│
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>╰──────────────────────────────────────────────────────────────────────────────╯
+</span></code></pre></div>
+<h4 id="downloading-a-new-items-csv">Downloading a new Items CSV<a class="headerlink" href="#downloading-a-new-items-csv" title="Permanent link">&para;</a></h4>
+<p>This command will download item data from ffxiah.com and save it to a CSV file.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>--verbose<span class="w"> </span>scrub
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>--verbose<span class="w"> </span>scrub<span class="w"> </span>--server<span class="w"> </span>ASURA
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>--verbose<span class="w"> </span>scrub<span class="w"> </span>--item-id<span class="w"> </span><span class="m">1</span><span class="w"> </span>--item-id<span class="w"> </span><span class="m">2</span><span class="w"> </span>--item-id<span class="w"> </span><span class="m">3</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>--verbose<span class="w"> </span>scrub<span class="w"> </span>--cat-url<span class="w"> </span>http://www.ffxiah.com/browse/62/grips
+</span></code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>There is a pre-built CSV file in the repo, so you do not need to run this command if you don't want to.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>scrub<span class="w"> </span>--help
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w"> </span>Usage:<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>scrub<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w">                                     </span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w"> </span>Download<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>item<span class="w"> </span>prices<span class="w"> </span>from<span class="w"> </span>ffxiah.com<span class="w"> </span>and<span class="w"> </span>save<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>CSV<span class="w"> </span>file.<span class="w">         </span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>╭─<span class="w"> </span>Options<span class="w"> </span>────────────────────────────────────────────────────────────────────╮
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>│<span class="w"> </span>--config<span class="w">              </span>PATH<span class="w">     </span>Config<span class="w"> </span>file<span class="w"> </span>path.<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>config.yaml<span class="o">]</span><span class="w">      </span>│
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>│<span class="w"> </span>--out-csv<span class="w">             </span>PATH<span class="w">     </span>The<span class="w"> </span>output<span class="w"> </span>CSV<span class="w"> </span>file<span class="w"> </span>to<span class="w"> </span>save.<span class="w">                  </span>│
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>│<span class="w">                                </span><span class="o">[</span>default:<span class="w"> </span>items.csv<span class="o">]</span><span class="w">                          </span>│
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>│<span class="w"> </span>--server<span class="w">              </span>SERVER<span class="w">   </span>The<span class="w"> </span>server<span class="w"> </span>name<span class="w"> </span><span class="o">(</span>asura,<span class="w"> </span>bahamut,<span class="w"> </span>etc<span class="o">)</span>.<span class="w">        </span>│
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>│<span class="w">                                </span><span class="o">[</span>default:<span class="w"> </span>ASURA<span class="o">]</span><span class="w">                              </span>│
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>│<span class="w"> </span>--cat-url<span class="w">             </span>TEXT<span class="w">     </span>Preset<span class="w"> </span>category<span class="w"> </span>URLs.<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span><span class="w">         </span>│
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>│<span class="w"> </span>--item-id<span class="w">             </span>INTEGER<span class="w">  </span>Preset<span class="w"> </span>item<span class="w"> </span>IDs.<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span><span class="w">              </span>│
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>│<span class="w"> </span>--overwrite<span class="w">                    </span>Overwrite<span class="w"> </span>output<span class="w"> </span>CSV?<span class="w">                         </span>│
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>│<span class="w"> </span>--stock-single<span class="w">        </span>INTEGER<span class="w">  </span>The<span class="w"> </span>default<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>items<span class="w"> </span><span class="k">for</span><span class="w"> </span>singles.<span class="w">      </span>│
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>│<span class="w">                                </span><span class="o">[</span>default:<span class="w"> </span><span class="m">10</span><span class="o">]</span><span class="w">                                 </span>│
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>│<span class="w"> </span>--stock-stacks<span class="w">        </span>INTEGER<span class="w">  </span>The<span class="w"> </span>default<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>items<span class="w"> </span><span class="k">for</span><span class="w"> </span>stacks.<span class="w">       </span>│
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>│<span class="w">                                </span><span class="o">[</span>default:<span class="w"> </span><span class="m">10</span><span class="o">]</span><span class="w">                                 </span>│
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>│<span class="w"> </span>--backup<span class="w">                       </span>Backup<span class="w"> </span>output<span class="w"> </span>CSV?<span class="w">                            </span>│
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>│<span class="w"> </span>--help<span class="w">                         </span>Show<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span>exit.<span class="w">                   </span>│
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>╰──────────────────────────────────────────────────────────────────────────────╯
+</span></code></pre></div>
+<h4 id="refilling-the-auction-house">Refilling the Auction House<a class="headerlink" href="#refilling-the-auction-house" title="Permanent link">&para;</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Run the <code>refill</code> app to populate the AH if you want to buy items immediately!</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>refill<span class="w"> </span>--inp-csv<span class="w"> </span>items.csv
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>refill<span class="w"> </span>--help
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w"> </span>Usage:<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>refill<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w">                                    </span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w"> </span>Refill<span class="w"> </span>the<span class="w"> </span>auction<span class="w"> </span>house<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>items<span class="w"> </span>defined<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>CSV<span class="w"> </span>file.<span class="w">               </span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>╭─<span class="w"> </span>Options<span class="w"> </span>────────────────────────────────────────────────────────────────────╮
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>│<span class="w"> </span>--config<span class="w">               </span>PATH<span class="w">  </span>Config<span class="w"> </span>file<span class="w"> </span>path.<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>config.yaml<span class="o">]</span><span class="w">        </span>│
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>│<span class="w"> </span>--inp-csv<span class="w">              </span>PATH<span class="w">  </span>Input<span class="w"> </span>CSV<span class="w"> </span>file<span class="w"> </span>path.<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span><span class="o">(</span>items.csv<span class="o">)]</span><span class="w">     </span>│
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>│<span class="w"> </span>--no-prompt<span class="w">                  </span>Do<span class="w"> </span>not<span class="w"> </span>ask<span class="w"> </span><span class="k">for</span><span class="w"> </span>confirmation.<span class="w">                    </span>│
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>│<span class="w"> </span>--use-sqlite-db<span class="w">        </span>PATH<span class="w">  </span>Use<span class="w"> </span>a<span class="w"> </span><span class="nb">test</span><span class="w"> </span>SQLite<span class="w"> </span>database<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>real<span class="w">  </span>│
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>│<span class="w">                              </span>one?<span class="w">                                            </span>│
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>│<span class="w">                              </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span><span class="w">                                 </span>│
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>│<span class="w"> </span>--help<span class="w">                       </span>Show<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span>exit.<span class="w">                     </span>│
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>╰──────────────────────────────────────────────────────────────────────────────╯
+</span></code></pre></div>
+<h4 id="clearing-the-auction-house">Clearing the Auction House<a class="headerlink" href="#clearing-the-auction-house" title="Permanent link">&para;</a></h4>
+<p>This command will remove all items for sale from the AH.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This command is pretty destructive, so be careful!</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Unless <code>--all</code> is specified, this command will only clear items that are for sale by the bot.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>clear<span class="w"> </span>--help
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w"> </span>Usage:<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>clear<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w">                                     </span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w"> </span>Delete<span class="w"> </span>items<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>auction<span class="w"> </span>house<span class="w"> </span><span class="o">(</span>dangerous<span class="w"> </span>operation!<span class="o">)</span>.<span class="w">                    </span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>╭─<span class="w"> </span>Options<span class="w"> </span>────────────────────────────────────────────────────────────────────╮
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>│<span class="w"> </span>--config<span class="w">               </span>PATH<span class="w">  </span>Config<span class="w"> </span>file<span class="w"> </span>path.<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>config.yaml<span class="o">]</span><span class="w">        </span>│
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>│<span class="w"> </span>--no-prompt<span class="w">                  </span>Do<span class="w"> </span>not<span class="w"> </span>ask<span class="w"> </span><span class="k">for</span><span class="w"> </span>confirmation.<span class="w">                    </span>│
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>│<span class="w"> </span>--all<span class="w">                        </span>Clear<span class="w"> </span>all<span class="w"> </span>items.<span class="w">                                </span>│
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>│<span class="w"> </span>--use-sqlite-db<span class="w">        </span>PATH<span class="w">  </span>Use<span class="w"> </span>a<span class="w"> </span><span class="nb">test</span><span class="w"> </span>SQLite<span class="w"> </span>database<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>real<span class="w">  </span>│
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>│<span class="w">                              </span>one?<span class="w">                                            </span>│
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>│<span class="w">                              </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span><span class="w">                                 </span>│
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>│<span class="w"> </span>--help<span class="w">                       </span>Show<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span>exit.<span class="w">                     </span>│
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>╰──────────────────────────────────────────────────────────────────────────────╯
+</span></code></pre></div>
+<h4 id="running-the-ah-broker-bot">Running the AH Broker Bot<a class="headerlink" href="#running-the-ah-broker-bot" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>ffxiahbot<span class="w"> </span>broker<span class="w"> </span>--inp-csv<span class="w"> </span>items.csv<span class="w"> </span>--buy-items<span class="w"> </span>--sell-items
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code>broker</code> will wait until the 1st cycle defined in your config before populating items.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>➜<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>broker<span class="w"> </span>--help
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w"> </span>Usage:<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ffxiahbot<span class="w"> </span>broker<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w">                                    </span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w"> </span>Run<span class="w"> </span>a<span class="w"> </span>bot<span class="w"> </span>that<span class="w"> </span>buys<span class="w"> </span>and<span class="w"> </span>sells<span class="w"> </span>items<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>auction<span class="w"> </span>house<span class="w"> </span>continuously.<span class="w">         </span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>╭─<span class="w"> </span>Options<span class="w"> </span>────────────────────────────────────────────────────────────────────╮
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>│<span class="w"> </span>--config<span class="w">                                    </span>PATH<span class="w">  </span>Config<span class="w"> </span>file<span class="w"> </span>path.<span class="w">          </span>│
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>│<span class="w">                                                   </span><span class="o">[</span>default:<span class="w"> </span>config.yaml<span class="o">]</span><span class="w">     </span>│
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>│<span class="w"> </span>--inp-csv<span class="w">                                   </span>PATH<span class="w">  </span>Input<span class="w"> </span>CSV<span class="w"> </span>file<span class="w"> </span>path.<span class="w">       </span>│
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>│<span class="w">                                                   </span><span class="o">[</span>default:<span class="w"> </span><span class="o">(</span>items.csv<span class="o">)]</span><span class="w">     </span>│
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>│<span class="w"> </span>--buy-items<span class="w">              </span>--no-buy-items<span class="w">           </span>Enable<span class="w"> </span>the<span class="w"> </span>buying<span class="w"> </span>of<span class="w">       </span>│
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>│<span class="w">                                                   </span>items.<span class="w">                     </span>│
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>│<span class="w">                                                   </span><span class="o">[</span>default:<span class="w"> </span>buy-items<span class="o">]</span><span class="w">       </span>│
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>│<span class="w"> </span>--sell-items<span class="w">             </span>--no-sell-items<span class="w">          </span>Enable<span class="w"> </span>the<span class="w"> </span>selling<span class="w"> </span>of<span class="w">      </span>│
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>│<span class="w">                                                   </span>items.<span class="w">                     </span>│
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>│<span class="w">                                                   </span><span class="o">[</span>default:<span class="w"> </span>sell-items<span class="o">]</span><span class="w">      </span>│
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>│<span class="w"> </span>--buy-immediately<span class="w">                                 </span>Buy<span class="w"> </span>items<span class="w"> </span>immediately<span class="w">      </span>│
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>│<span class="w">                                                   </span>instead<span class="w"> </span>of<span class="w"> </span>waiting?<span class="w">        </span>│
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>│<span class="w"> </span>--restock-immediately<span class="w">                             </span>Restock<span class="w"> </span>items<span class="w"> </span>immediately<span class="w">  </span>│
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>│<span class="w">                                                   </span>instead<span class="w"> </span>of<span class="w"> </span>waiting?<span class="w">        </span>│
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>│<span class="w"> </span>--use-sqlite-db<span class="w">                             </span>PATH<span class="w">  </span>Use<span class="w"> </span>a<span class="w"> </span><span class="nb">test</span><span class="w"> </span>SQLite<span class="w"> </span>database<span class="w"> </span>│
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>│<span class="w">                                                   </span>instead<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>real<span class="w"> </span>one?<span class="w">   </span>│
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>│<span class="w">                                                   </span><span class="o">[</span>default:<span class="w"> </span>None<span class="o">]</span><span class="w">            </span>│
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>│<span class="w"> </span>--help<span class="w">                                            </span>Show<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>and<span class="w">      </span>│
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>│<span class="w">                                                   </span>exit.<span class="w">                      </span>│
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>╰──────────────────────────────────────────────────────────────────────────────╯
+</span></code></pre></div>
+<h4 id="manually-editing-the-items-csv">Manually Editing the Items CSV<a class="headerlink" href="#manually-editing-the-items-csv" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Item data is stored in <em>items.csv</em> (you can edit it with a text editor or
+  Excel)</li>
+<li>There is an already generated <em>items.csv</em> in the bin folder for you</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>There is no reason to run the scrub app as an <code>items.csv</code> is included already in the repository!</li>
+<li>You do not need to regenerate the database even if you think it is old!</li>
+<li>You can cause yourself pricing issues, you have been warned!</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Retail sometimes has unexpected prices in the history.</p>
+<ul>
+<li>There may be ancient entries.</li>
+<li>Something might be sold something below NPC price.</li>
+<li>An item may only really sell as either a stack or a single.</li>
+</ul>
+<p>This may result in exploits on your server if you are not careful.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>description</th>
+<th>value</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>itemid</td>
+<td>unique item id</td>
+<td>integer &gt;=0</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>item name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>sell_single</td>
+<td>sell single?</td>
+<td>0=false 1=true</td>
+<td></td>
+</tr>
+<tr>
+<td>buy_single</td>
+<td>buy single?</td>
+<td>0=false 1=true</td>
+<td></td>
+</tr>
+<tr>
+<td>price_single</td>
+<td>price for single</td>
+<td>integer &gt;=1</td>
+<td></td>
+</tr>
+<tr>
+<td>stock_single</td>
+<td>restock count (single)</td>
+<td>integer &gt;=0</td>
+<td></td>
+</tr>
+<tr>
+<td>sell_rate_single</td>
+<td>sell rate (single)</td>
+<td>float 0 &lt;= x &lt;= 1</td>
+<td>disabled unless use_selling_rates=true</td>
+</tr>
+<tr>
+<td>buy_rate_single</td>
+<td>buy rate (single)</td>
+<td>float 0 &lt;= x &lt;= 1</td>
+<td>disabled unless use_buying_rates=true</td>
+</tr>
+<tr>
+<td>sell_stacks</td>
+<td>sell stack?</td>
+<td>0=false 1=true</td>
+<td></td>
+</tr>
+<tr>
+<td>buy_stacks</td>
+<td>buy stack?</td>
+<td>0=false 1=true</td>
+<td></td>
+</tr>
+<tr>
+<td>price_stacks</td>
+<td>price for stack</td>
+<td>integer &gt;=1</td>
+<td></td>
+</tr>
+<tr>
+<td>stock_stacks</td>
+<td>restock count (stack)</td>
+<td>integer &gt;=0</td>
+<td></td>
+</tr>
+<tr>
+<td>sell_rate_stacks</td>
+<td>sell rate (stack)</td>
+<td>float 0 &lt;= x &lt;= 1</td>
+<td>disabled unless use_selling_rates=true</td>
+</tr>
+<tr>
+<td>buy_rate_stacks</td>
+<td>buy rate (stack)</td>
+<td>float 0 &lt;= x &lt;= 1</td>
+<td>disabled unless use_buying_rates=true</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maintained by <a href="https://AdamGagorik.com">Adam</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/AdamGagorik/ffxiahbot" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/project/ffxiahbot" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
+</html>
