@@ -662,10 +662,12 @@ App specific command line flags must come after the name of the app to run.</p>
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You do not actually need a live or production SQL database to test these commands.
-Instead, you can pass the <code>--use-sqlite-db</code> flag to use a fake SQLite database instead.
-This will manipulate a SQLite database file on your machine instead of a real server's database.
-You can then inspect the database with any tool that can read SQLite databases.</p>
+<p>You do not actually need a live or production SQL database to test these commands.</p>
+<ul>
+<li>Instead, you can pass the <code>--use-sqlite-db</code> flag to use a fake SQLite database instead.</li>
+<li>This will manipulate a SQLite database file on your machine instead of a real server's database.</li>
+<li>You can then inspect the database with any tool that can read SQLite databases.</li>
+</ul>
 </div>
 <h4 id="downloading-a-new-items-csv">Downloading a new Items CSV<a class="headerlink" href="#downloading-a-new-items-csv" title="Permanent link">&para;</a></h4>
 <p>This command will download item data from ffxiah.com and save it to a CSV file.</p>
